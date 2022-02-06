@@ -3,6 +3,7 @@ package com.andrewborchenko.spring.buycycle.models;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 
@@ -29,10 +30,12 @@ public class Image {
     private boolean isPreviewImage;
     //@Lob - поле будет представлено как двоичное представление в бд
     @Lob
+    @Type(type = "org.hibernate.type.ImageType")
     private byte[] bytes;
     // тут создается foreign key | fetch - способ загрузки LAZY - фото будут загружены
     // после загрузки сущности product, EAGER - только после подрузки всех деталей
     // будет загружена сущность product
     @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
     private Product product;
+
 }

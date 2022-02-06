@@ -13,7 +13,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.security.Principal;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -24,7 +23,7 @@ public class ProductService {
     private final UserRepository userRepository;
 
     public List<Product> listProducts(String title) {
-        if (title != null) return productRepository.findProductByTitle(title);
+        if (title != null) return productRepository.findProductByTitleContaining(title);
         return productRepository.findAll();
     }
 
@@ -49,7 +48,9 @@ public class ProductService {
         }
         log.info("Saving new Product. Title: {}; Author email: {}", product.getTitle(), product.getUser().getEmail());
         Product productFromDb = productRepository.save(product);
-        productFromDb.setPreviewImageId(productFromDb.getImages().get(0).getId());
+        if(!productFromDb.getImages().isEmpty()) {
+            productFromDb.setPreviewImageId(productFromDb.getImages().get(0).getId());
+        }
         productRepository.save(product);
     }
 

@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>BUYCYCLE</title>
-</head>
-<body>
-<#--<hr> - отступ-->
-<h1>BUYCYCLE</h1>
-<#--сплошная линия на весь экран-->
-<hr>
+<#import "parts/common.ftlh" as c>
+<#import "parts/login.ftlh" as log>
+
+<@c.page>
+    <@log.login user, "/admin", "/logout", "/login"/>
 <h3>Редактирование пользователя ${user.name}</h3>
 <form action="/admin/user/edit" method="post">
     <#list roles as role>
@@ -21,3 +16,4 @@
 </form>
 </body>
 </html>
+</@c.page>

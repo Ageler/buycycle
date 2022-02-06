@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>BUYCYCLE</title>
-</head>
-<body>
-<#--<hr> - отступ-->
-<h1>BUYCYCLE</h1>
-<#--сплошная линия на весь экран-->
-<hr>
+<#import "parts/common.ftlh" as c>
+
+
+<@c.page>
 <h4>Регистрация</h4>
 <form action="/registration" method="post">
     Имя пользователя <input type="text" name="name"><br><br>
@@ -23,3 +17,4 @@
 </#if>
 </body>
 </html>
+</@c.page>

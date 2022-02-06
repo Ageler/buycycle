@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>BUYCYCLE</title>
-</head>
-<body>
-<#--<hr> - отступ-->
-<#--?? -  exist-->
-<h1>BUYCYCLE</h1><hr>
+<#import "parts/common.ftlh" as c>
+
+
+<@c.page>
+    <@log.login user, "/admin", "/logout", "/login"/>
 <h4>Панель администратора</h4>
 
 <table border="1">
@@ -38,5 +34,4 @@
         <h3>Пользователей нет</h3>
     </#list>
 </table>
-</body>
-</html>
+</@c.page>

@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>BUYCYCLE</title>
-</head>
-<body>
-<#--<hr> - отступ-->
-<h1>BUYCYCLE</h1>
-<#--сплошная линия на весь экран-->
-<hr>
+<#import "parts/common.ftlh" as c>
+<#import "parts/login.ftlh" as log>
+
+<@c.page>
+    <@log.login user, "/admin", "/logout", "/login"/>
 <h3>Подробная информация о пользователе ${user.name}</h3>
 <b>Номер телефона: </b> ${user.phoneNumber}<br>
 <b>Email: </b> ${user.email}<br>
@@ -31,3 +26,4 @@
 </#if>
 </body>
 </html>
+</@c.page>

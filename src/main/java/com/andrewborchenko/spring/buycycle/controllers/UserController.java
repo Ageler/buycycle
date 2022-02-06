@@ -42,6 +42,11 @@ public class UserController {
         return "hello";
     }
 
+    @GetMapping("/index")
+    public String testSecurityUrl() {
+        return "index";
+    }
+
     // в spring есть возможность ловить определенного user-а
     @GetMapping("/user/{user}")
     public String userInfo(@PathVariable("user") User user, Model model) {

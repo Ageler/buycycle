@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>BUYCYCLE</title>
-</head>
-<body>
-<#--<hr> - отступ-->
-<h1>BUYCYCLE</h1>
-<#--сплошная линия на весь экран-->
-<hr>
+<#import "parts/common.ftlh" as c>
+<#import "parts/login.ftlh" as log>
+
+<@c.page>
+    <@log.login false, "/admin", "/logout", "/login"/>
 <h4>Подробная информация о товаре</h4>
 <#list images as img>
     <img src="/images/${img.id}" height="60px"/><br><br>
@@ -19,3 +14,4 @@
 <b>Автор: </b><a href="/user/${product.user.id}">${product.user.name}</a><br>
 </body>
 </html>
+</@c.page>
